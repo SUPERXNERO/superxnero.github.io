@@ -291,12 +291,7 @@
       let mainData = {
         availableLanguages: new OnChange(onAvailableLanguagesChange),
         availableThemes: new OnChange(onAvailableThemesChange),
-        contacts: new OnChange(onContactsChange),
-        accessToken: new OnChange(onAccessTokenChange),
-        username: new OnChange(onUsernameChange),
-        currentRepo: new OnChange(onCurrentRepoChange),
-        options: new OnChange(onOptionsChange),
-        currentPage: new OnChange(onCurrentPageChange)
+        contacts: new OnChange(onContactsChange)
       };
       setDatum("availableLanguages", ["ar", "en"]);
       setDatum("availableThemes", ["light", "dark"]);
@@ -306,40 +301,6 @@
         "phone": "967718177515"
       }];
       setDatum("contacts", contacts);
-
-      const localStorageData = localStorage.getItem("github-manager");
-
-      if (localStorageData?.accessToken) {
-        setDatum("accessToken", localStorageData.accessToken);
-      } else {
-        setDatum("accessToken", null);
-      }
-      if (localStorageData?.username) {
-        setDatum("username", localStorageData.username);
-      } else {
-        setDatum("username", null);
-      }
-      if (localStorageData?.currentRepo) {
-        setDatum("currentRepo", localStorageData.currentRepo);
-      } else {
-        setDatum("currentRepo", null);
-      }
-
-      setDatum("options", [
-        "createRepo",
-        "updateRepoSettings",
-        "getAllRepos",
-        "getRepoContents",
-        "getFileContent",
-        "getDirectoryContents",
-        "createPath",
-        "createEmptyFolder",
-        "deleteFile",
-        "deleteFolder",
-        "renameFolder",
-        "updateFile"
-      ]);
-      setDatum("currentPage", null);
 
       openSidebar.onclick = function() {
         sidebar.classList.add("show");
@@ -358,72 +319,6 @@
           });
         }
       });
-
-      openMenu.onclick = function() {
-        menuItems.classList.add("show");
-        menuItems.offclick(()=> {
-          menuItems.classList.remove("show");
-        });
-      };
-
-      menuItems.querySelectorAll("& > .item").forEach((item)=> {
-        item.onclick = function() {
-          const id = item.dataset.id;
-          setDatum("currentPage", id);
-          menuItems.classList.remove("show");
-        }
-      });
-
-      closePage.onclick = function() {
-        setDatum("currentPage", null);
-      }
-
-      function onAccessTokenChange(accessToken) {
-        if (accessToken === null) {
-          //options.classList.add("disable");
-          return;
-        }
-      }
-
-      function onUsernameChange(username) {
-        if (username === null) {
-          //options.classList.add("disable");
-          return;
-        }
-      }
-
-      function onCurrentRepoChange(currentRepo) {
-        //
-      }
-
-      function onOptionsChange(newOptions) {
-        options.innerHTML = "";
-        newOptions.forEach((newOption)=> {
-          options.innerHTML += `
-          <div class="option" data-id="${newOption}" data-textoptions="${newOption}Keyword,true"></div>`;
-        });
-        options.querySelectorAll("& > .option").forEach((option)=> {
-          option.onclick = function() {
-            //
-          }
-        });
-      }
-
-      function onCurrentPageChange(currentPage) {
-        pagesList.querySelectorAll("& > .page").forEach((page)=> {
-          page.classList.remove("show");
-        });
-        if (pagesList.querySelectorAll(`& > #${currentPage}Page`).length === 1) {
-          pages.classList.add("show");
-          pagesList.querySelector(`& > #${currentPage}Page`).classList.add("show");
-          options.classList.add("hide");
-          pageTitle.dataset.textoptions = `${currentPage}Keyword,true`;
-          languageManager.updateElements(`${currentPage}Keyword`);
-        } else {
-          pages.classList.remove("show");
-          options.classList.remove("hide");
-        }
-      }
 
       function onContactsChange(contacts) {
         phoneNumbersList.innerHTML = "";
