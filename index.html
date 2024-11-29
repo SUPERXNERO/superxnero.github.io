@@ -14,9 +14,719 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5475049640797404"
      crossorigin="anonymous"></script>
-  <title>SuperXnero</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>superxnero home</title>
+  <style class="realStyle" id="importStyle">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap');
+  </style>
+  <style class="realStyle">
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: var(--theme-color);
+      font-family: inherit;
+      user-select: none;
+    }
+    :placeholder {
+      color: var(--theme-color2);
+    }
+    body {
+      background: var(--theme-background);
+    }
+    .ds-none {
+      display: none;
+    }
+    .disable {
+      filter: opacity(.6);
+      pointer-events: none;
+    }
+    #main {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      position: relative;
+      background: var(--theme-box3);
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--theme-color2);
+    }
+    .arLanguage header {
+      flex-direction: row-reverse;
+    }
+    #openSidebar,#openMenu,#closePage {
+      border-radius: 50%;
+      background: var(--theme-box2);
+      border: 2px solid transparent;
+      padding: 6px;
+      aspect-ratio: 1/1;
+      transition: .2s;
+    }
+:is(#openSidebar,#openMenu,#closePage):active {
+      filter: brightness(1.5);
+      border-color: var(--theme-color2);
+      transform: scale(.9);
+    }
+:is(#openSidebar, #openMenu,#closePage) svg {
+      width: 25px;
+      height: 25px;
+    }
+:is(#openSidebar,#closePage) svg {
+      stroke: var(--theme-color);
+    }
+    #openMenu svg {
+      fill: var(--theme-color);
+    }
+    #menu {
+      position: relative;
+    }
+    #menuItems {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      background: var(--theme-box4);
+      border: 2px solid var(--theme-color2);
+      min-width: 100px;
+      overflow: scroll;
+      max-height: 400px;
+      z-index: 1;
+      transition: .2s;
+    }
+    #menuItems.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .arLanguage #menuItems {
+      left: 0;
+      right: auto;
+    }
+    #menuItems .item {
+      width: 100%;
+      border: 2px solid transparent;
+      text-wrap: nowrap;
+      padding: 6px;
+      background: var(--theme-box3);
+      transition: .2s;
+    }
+    #menuItems .item:active {
+      filter: brightness(1.5);
+      border-color: var(--theme-color2);
+      transform: scale(.95);
+    }
+    #h1Title {
+      flex-grow: 1;
+      text-align: center;
+      font-size: 18px;
+    }
+    #container {
+      position: relative;
+      width: 100%;
+      flex-grow: 1;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      background: var(--theme-box);
+      display: flex;
+      flex-direction: column;
+    }
+    #options,#pages {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #options {
+      overflow: scroll;
+      transition: .2s;
+    }
+    #options.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #options .option {
+      background: var(--theme-box2);
+      border: 2px solid transparent;
+      padding: 6px;
+      margin-top: 8px;
+      border-radius: 2px;
+      transition: .2s;
+    }
+    #options .option:active {
+      filter: brightness(1.5);
+      border-color: var(--theme-color2);
+      transform: scale(.95);
+    }
+    #options .option.danger {
+      background: var(--theme-error);
+    }
+    #pages {
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s;
+    }
+    #pages.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #pagesHeader {
+      display: flex;
+      align-items: center;
+      padding: 6px;
+      background: var(--theme-box4);
+    }
+    .arLanguage #pagesHeader {
+      flex-direction: row-reverse;
+    }
+    .arLanguage #closePage svg {
+      transform: rotate(180deg);
+    }
+    #pageTitle {
+      flex-grow: 1;
+      text-align: center;
+    }
+    #pagesList .page {
+      opacity: 0;
+      pointer-events: none;
+      padding: 6px;
+      transition: .2s;
+    }
+    #pagesList .page.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #pagesList .page label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: var(--theme-color);
+    }
+    #pagesList .page :is(input, button) {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid var(--theme-box4);
+      outline-color: var(--theme-box4);
+      border-radius: 4px;
+      background: var(--theme-box3);
+    }
+    #pagesList .page button {
+      background: var(--theme-box2);
+      border: 2px solid transparent;
+      padding: 6px;
+      margin-top: 40px;
+      border-radius: 2px;
+      transition: .2s;
+    }
+    #pagesList .page button:active {
+      filter: brightness(1.5);
+      border-color: var(--theme-color2);
+      transform: scale(.95);
+    }
+    #sidebar {
+      --leftSidebar: -100%;
+      position: fixed;
+      top: 0;
+      left: var(--leftSidebar);
+      height: 100%;
+      min-width: 160px;
+      background: var(--theme-box4);
+      border-inline-end: 2px solid var(--theme-color2);
+      transition: .2s;
+    }
+    .arLanguage #sidebar {
+      left: auto;
+      right: var(--leftSidebar);
+      border-inline-end: 0;
+      border-inline-start: 2px solid var(--theme-color2);
+    }
+    #sidebar.show {
+      --leftSidebar: 0;
+    }
+    #sidebar .item {
+      position: relative;
+    }
+    #sidebar .itemShow {
+      padding: 6px;
+      border: 2px solid transparent;
+      background: var(--theme-box4);
+      transition: .2s;
+    }
+    #sidebar .itemShow:active {
+      filter: brightness(1.5);
+    }
+    #sidebar .itemList {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      pointer-events: none;
+      background: var(--theme-box4);
+      min-width: 100px;
+      border: 2px solid var(--theme-color2);
+      border-left-width: 0;
+      overflow: scroll;
+      max-height: 400px;
+      z-index: 1;
+      transition: .2s;
+    }
+    #sidebar .itemList.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .arLanguage #sidebar .itemList {
+      left: auto;
+      right: 100%;
+      border-left-width: 2px;
+      border-right-width: 0;
+    }
+    #sidebar .itemList > div {
+      width: 100%;
+      border: 2px solid transparent;
+      text-wrap: nowrap;
+      padding: 6px;
+      background: var(--theme-box3);
+      transition: .2s;
+    }
+    #sidebar .itemList > div:active {
+      filter: brightness(1.5);
+      border-color: var(--theme-color2);
+      transform: scale(.95);
+    }
+  </style>
+  <style class="realStyle">
+@media (min-width: 800px) {
+    #mainSidebar {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      min-width: 100vw;
+      min-height: 100vh;
+    }
+    .arLanguage #mainSidebar {
+      grid-template-columns: 5fr 1fr;
+    }
+    #main {
+      order: 2;
+    }
+    .arLanguage #main {
+      order: 1;
+    }
+    #sidebar {
+      order: 1;
+    }
+    .arLanguage #sidebar {
+      order: 2;
+    }
+    #h1Title {
+      font-size: 35px;
+    }
+    #openSidebar {
+      display: none;
+    }
+    #sidebar {
+      position: relative;
+      --leftSidebar: 0;
+    }
+  }
+  </style>
 </head>
 <body>
-  <h1>Welcome to SuperXnero's GitHub Page!</h1>
+  <div id="realPage">
+    <div id="mainSidebar">
+      <div id="main">
+        <header>
+          <div id="openSidebar" data-fetch="/storage/5A67-DF85/GitHub/assets/svgs/burger-menu_506800.svg"></div>
+          <h1 id="h1Title" data-textoptions="title"></h1>
+          <div id="menu">
+            <div id="openMenu" data-fetch="/storage/5A67-DF85/GitHub/assets/svgs/three-dots-vertical_345223.svg"></div>
+            <div id="menuItems">
+              <div class="item" data-id="accessToken" data-textoptions="accessTokenKeyword,true"></div>
+              <div class="item" data-id="username" data-textoptions="usernameKeyword,true"></div>
+              <div class="item" data-id="setCurrentRepo" data-textoptions="setCurrentRepoKeyword,true"></div>
+            </div>
+          </div>
+        </header>
+        <div id="container">
+          <div id="options">
+          </div>
+          <div id="pages">
+            <div id="pagesHeader">
+              <div id="closePage" data-fetch="/storage/5A67-DF85/GitHub/assets/svgs/arrow-left_533593.svg"></div>
+              <div id="pageTitle"></div>
+            </div>
+            <div id="pagesList">
+              <div id="accessTokenPage" class="page">
+                <label for="accessToken" data-textoptions="accessTokenKeyword,true"></label>
+                <input type="password" id="accessToken"/>
+                <button type="submit" data-textoptions="saveKeyword"></button>
+              </div>
+              <div id="usernamePage" class="page"></div>
+              <div id="setCurrentRepoPage" class="page"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sidebar">
+        <div class="item">
+          <div class="itemShow" data-textoptions="language"></div>
+          <div id="availableLanguages" class="itemList">
+          </div>
+        </div>
+        <div class="item">
+          <div class="itemShow" data-textoptions="themeText"></div>
+          <div id="availableThemes" class="itemList">
+          </div>
+        </div>
+        <div class="item">
+          <div class="itemShow" data-textoptions="contact"></div>
+          <div id="phoneNumbersList" class="itemList">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script class="realScript" type="module" defer>
+    import {
+      OnChange
+    } from "/storage/5A67-DF85/GitHub/assets/libs/OnChange.js";
+    import {
+      LanguageManager
+    } from "/storage/5A67-DF85/GitHub/assets/libs/LanguageManager.js";
+    import {
+      ThemeManager
+    } from "/storage/5A67-DF85/GitHub/assets/libs/ThemeManager.js";
+    import {
+      FetchToElement
+    } from "/storage/5A67-DF85/GitHub/assets/libs/FetchToElement.js";
+    import * as an from "/storage/5A67-DF85/GitHub/assets/libs/another.js";
+    const q = (e)=> document.querySelector(e);
+    const qA = (e)=> document.querySelectorAll(e);
+    const root = document.documentElement;
+    const head = document.head;
+    const body = document.body;
+    const realPage = q("#realPage");
+
+    /* start real code */
+    async function realCode() {
+      // element variables
+      const openSidebar = q("#openSidebar");
+      const container = q("#container");
+      const sidebar = q("#sidebar");
+      const availableLanguages = q("#availableLanguages");
+      const availableThemes = q("#availableThemes");
+      const phoneNumbersList = q("#phoneNumbersList");
+      const openMenu = q("#openMenu");
+      const menuItems = q("#menuItems");
+      const options = q("#options");
+      const pages = q("#pages");
+      const closePage = q("#closePage");
+      const pageTitle = q("#pageTitle");
+      const pagesList = q("#pagesList");
+
+      const languageManager = new LanguageManager({
+        saveAll: true,
+        baseUrl: "/storage/5A67-DF85/GitHub/languages-content/github-manager/",
+        defaultLanguage: localStorage.getItem("language"),
+        changeEvents: {
+          "language": onLanguageChange
+        }
+      });
+      const themeManager = new ThemeManager({
+        saveAll: true,
+        baseUrl: "/storage/5A67-DF85/GitHub/themes-content/public/",
+        defaultTheme: localStorage.getItem("theme"),
+        changeEvents: {
+          "theme": onThemeChange
+        }
+      });
+      const fetchToElement = new FetchToElement(true);
+
+      let mainData = {
+        availableLanguages: new OnChange(onAvailableLanguagesChange),
+        availableThemes: new OnChange(onAvailableThemesChange),
+        contacts: new OnChange(onContactsChange),
+        accessToken: new OnChange(onAccessTokenChange),
+        username: new OnChange(onUsernameChange),
+        currentRepo: new OnChange(onCurrentRepoChange),
+        options: new OnChange(onOptionsChange),
+        currentPage: new OnChange(onCurrentPageChange)
+      };
+      setDatum("availableLanguages", ["ar", "en"]);
+      setDatum("availableThemes", ["light", "dark"]);
+
+      const contacts = [{
+        "name": "developer",
+        "phone": "967718177515"
+      }];
+      setDatum("contacts", contacts);
+
+      const localStorageData = localStorage.getItem("github-manager");
+
+      if (localStorageData?.accessToken) {
+        setDatum("accessToken", localStorageData.accessToken);
+      } else {
+        setDatum("accessToken", null);
+      }
+      if (localStorageData?.username) {
+        setDatum("username", localStorageData.username);
+      } else {
+        setDatum("username", null);
+      }
+      if (localStorageData?.currentRepo) {
+        setDatum("currentRepo", localStorageData.currentRepo);
+      } else {
+        setDatum("currentRepo", null);
+      }
+
+      setDatum("options", [
+        "createRepo",
+        "updateRepoSettings",
+        "getAllRepos",
+        "getRepoContents",
+        "getFileContent",
+        "getDirectoryContents",
+        "createPath",
+        "createEmptyFolder",
+        "deleteFile",
+        "deleteFolder",
+        "renameFolder",
+        "updateFile"
+      ]);
+      setDatum("currentPage", null);
+
+      openSidebar.onclick = function() {
+        sidebar.classList.add("show");
+        sidebar.offclick(()=> {
+          sidebar.classList.remove("show");
+        });
+      }
+
+      sidebar.querySelectorAll("& > .item").forEach((item)=> {
+        const itemShow = item.querySelector("& > .itemShow");
+        const itemList = item.querySelector("& > .itemList");
+        itemShow.onclick = function() {
+          itemList.classList.add("show");
+          itemList.offclick(()=> {
+            itemList.classList.remove("show");
+          });
+        }
+      });
+
+      openMenu.onclick = function() {
+        menuItems.classList.add("show");
+        menuItems.offclick(()=> {
+          menuItems.classList.remove("show");
+        });
+      };
+
+      menuItems.querySelectorAll("& > .item").forEach((item)=> {
+        item.onclick = function() {
+          const id = item.dataset.id;
+          setDatum("currentPage", id);
+          menuItems.classList.remove("show");
+        }
+      });
+
+      closePage.onclick = function() {
+        setDatum("currentPage", null);
+      }
+
+      function onAccessTokenChange(accessToken) {
+        if (accessToken === null) {
+          //options.classList.add("disable");
+          return;
+        }
+      }
+
+      function onUsernameChange(username) {
+        if (username === null) {
+          //options.classList.add("disable");
+          return;
+        }
+      }
+
+      function onCurrentRepoChange(currentRepo) {
+        //
+      }
+
+      function onOptionsChange(newOptions) {
+        options.innerHTML = "";
+        newOptions.forEach((newOption)=> {
+          options.innerHTML += `
+          <div class="option" data-id="${newOption}" data-textoptions="${newOption}Keyword,true"></div>`;
+        });
+        options.querySelectorAll("& > .option").forEach((option)=> {
+          option.onclick = function() {
+            //
+          }
+        });
+      }
+
+      function onCurrentPageChange(currentPage) {
+        pagesList.querySelectorAll("& > .page").forEach((page)=> {
+          page.classList.remove("show");
+        });
+        if (pagesList.querySelectorAll(`& > #${currentPage}Page`).length === 1) {
+          pages.classList.add("show");
+          pagesList.querySelector(`& > #${currentPage}Page`).classList.add("show");
+          options.classList.add("hide");
+          pageTitle.dataset.textoptions = `${currentPage}Keyword,true`;
+          languageManager.updateElements(`${currentPage}Keyword`);
+        } else {
+          pages.classList.remove("show");
+          options.classList.remove("hide");
+        }
+      }
+
+      function onContactsChange(contacts) {
+        phoneNumbersList.innerHTML = "";
+        contacts.forEach((contact)=> {
+          phoneNumbersList.innerHTML += `
+          <div class="phoneNumber" data-phone="${contact.phone}" data-textoptions="${contact.name}"></div>`;
+        });
+        if (Object.keys(languageManager.languagesContent).length > 1) {
+          languageManager.updateElements();
+        }
+        Object.values(phoneNumbersList.querySelectorAll("& .phoneNumber")).forEach((item)=> {
+          item.onclick = function() {
+            const baseUrl = "https://wa.me/";
+            window.location.href = baseUrl + item.dataset.phone;
+          }
+        });
+      }
+
+      function onLanguageChange(language) {
+        localStorage.setItem("language", language);
+      }
+
+      function onThemeChange(theme) {
+        localStorage.setItem("theme", theme);
+      }
+
+      function onAvailableLanguagesChange(languages) {
+        availableLanguages.innerHTML = "";
+        languages.forEach((language)=> {
+          availableLanguages.innerHTML += `
+          <div class="languageItem" data-id="${language}" data-textoptions="${language}"></div>`;
+        });
+        if (Object.keys(languageManager.languagesContent).length > 1) {
+          languageManager.updateElements();
+        }
+        Object.values(availableLanguages.querySelectorAll("& .languageItem")).forEach((item)=> {
+          item.onclick = function() {
+            const id = item.dataset.id;
+            languageManager.setLanguage(id);
+          }
+        });
+      }
+
+      function onAvailableThemesChange(themes) {
+        availableThemes.innerHTML = "";
+        themes.forEach((theme)=> {
+          availableThemes.innerHTML += `
+          <div class="themeItem" data-id="${theme}" data-textoptions="${theme}"></div>`;
+        });
+        if (Object.keys(languageManager.languagesContent).length > 1) {
+          languageManager.updateElements();
+        }
+        Object.values(availableThemes.querySelectorAll("& .themeItem")).forEach((item)=> {
+          item.onclick = function() {
+            const id = item.dataset.id;
+            themeManager.setTheme(id);
+          }
+        });
+      }
+
+      function getDatum(datum) {
+        return mainData[datum].value;
+      }
+
+      function setDatum(datum, value) {
+        mainData[datum].change(value);
+      }
+    }
+    /* run real code */
+    realCode();
+
+    Element.prototype.allChildren = function(includeSelf = false) {
+      let children = Array.from(this.children);
+      children.forEach(child => {
+        children.push(...child.allChildren());
+      });
+      return includeSelf ? [this,
+        ...children]: children;
+    };
+
+
+    Element.prototype.offclick = function (fun,
+      other = {}) {
+      let element = this;
+
+      if (other == true) other = {
+        elementPlus: true
+      }
+      let conditon = other.conditon || 'true',
+      lockEvents = other.lockEvents || false,
+      elementPlus = other.elementPlus,
+      notLock = other.notLock,
+      clearEvent = other.clearEvent;
+      document.addEventListener('mouseup',
+        offClick);
+
+      let elements = [element];
+      if (elementPlus && elementPlus.v) {
+        if (an.isOneElement(elementPlus)) elements = [element,
+          elementPlus];
+        else elements = [element,
+          ...elementPlus];
+      }
+
+      if (lockEvents) {
+        if (!notLock) notLock = elements;
+        element.lockEvents('lock', notLock);
+      }
+
+      function offClick(events) {
+        let event = events || events.changedTouches[0];
+
+        if (elementPlus == true) {
+          removeEvent(event);
+          return;
+        }
+
+        let isNoClick = elements.length;
+        elements.forEach(element => {
+          if (event.target !== element) isNoClick--;
+          if (element.children) {
+            isNoClick += element.allChildren().length;
+            element.allChildren().forEach(child=> {
+              if (event.target !== child) isNoClick--;
+            });
+          }
+        });
+        var cond = typeof conditon == 'function' ? conditon(event): typeof conditon == 'boolean' ? conditon: '';
+        if (isNoClick === 0 && cond !== false || cond === true) removeEvent(event);
+      }
+      function removeEvent(event) {
+        document.removeEventListener('mouseup', offClick);
+        if (lockEvents) element.lockEvents('unlock', notLock);
+        if (typeof fun == 'function') fun(event);
+      }
+    }
+  </script>
 </body>
 </html>
