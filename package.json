@@ -1,8 +1,0 @@
-{
-  "name": "sitemap-generator",
-  "version": "1.0.0",
-  "scripts": {
-    "generate": "node generateSitemap.js"
-  },
-  "dependencies": {}
-}
