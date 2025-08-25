@@ -1,460 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBHMN6YSS1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-VBHMN6YSS1');
-  </script>
-  <meta name="google-site-verification" content="n0W-kgx6mbUha6CUEv3Y5SUdWw3GR9TSN_LswIqLUxY" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>superxnero home</title>
-  <style class="realStyle" id="importStyle">
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap');
-  </style>
-  <style class="realStyle">
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      color: var(--theme-color);
-      font-family: inherit;
-      user-select: none;
-    }
-    :placeholder {
-      color: var(--theme-color2);
-    }
-    body {
-      background: var(--theme-background);
-    }
-    .ds-none {
-      display: none;
-    }
-    .disable {
-      filter: opacity(.6);
-      pointer-events: none;
-    }
-    #main {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    header {
-      position: relative;
-      background: var(--theme-box3);
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid var(--theme-color2);
-    }
-    .arLanguage header {
-      flex-direction: row-reverse;
-    }
-    #openSidebar {
-      border-radius: 50%;
-      background: var(--theme-box2);
-      border: 2px solid transparent;
-      padding: 6px;
-      aspect-ratio: 1/1;
-      transition: .2s;
-    }
-    #openSidebar:active {
-      filter: brightness(1.5);
-      border-color: var(--theme-color2);
-      transform: scale(.9);
-    }
-    #openSidebar svg {
-      width: 25px;
-      height: 25px;
-    }
-    #openSidebar svg {
-      stroke: var(--theme-color);
-    }
-    #h1Title {
-      flex-grow: 1;
-      text-align: center;
-      font-size: 18px;
-      font-family: "Poppins";
-    }
-    #container {
-      position: relative;
-      width: 100%;
-      flex-grow: 1;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px;
-      background: var(--theme-box);
-      display: flex;
-      flex-direction: column;
-    }
-    #sidebar {
-      --leftSidebar: -100%;
-      position: fixed;
-      top: 0;
-      left: var(--leftSidebar);
-      height: 100%;
-      min-width: 160px;
-      background: var(--theme-box4);
-      border-inline-end: 2px solid var(--theme-color2);
-      transition: .2s;
-    }
-    .arLanguage #sidebar {
-      left: auto;
-      right: var(--leftSidebar);
-      border-inline-end: 0;
-      border-inline-start: 2px solid var(--theme-color2);
-    }
-    #sidebar.show {
-      --leftSidebar: 0;
-    }
-    #sidebar .item {
-      position: relative;
-    }
-    #sidebar .itemShow {
-      padding: 6px;
-      border: 2px solid transparent;
-      background: var(--theme-box4);
-      transition: .2s;
-    }
-    #sidebar .itemShow:active {
-      filter: brightness(1.5);
-    }
-    #sidebar .itemList {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      opacity: 0;
-      pointer-events: none;
-      background: var(--theme-box4);
-      min-width: 100px;
-      border: 2px solid var(--theme-color2);
-      border-left-width: 0;
-      overflow: scroll;
-      max-height: 400px;
-      z-index: 1;
-      transition: .2s;
-    }
-    #sidebar .itemList.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .arLanguage #sidebar .itemList {
-      left: auto;
-      right: 100%;
-      border-left-width: 2px;
-      border-right-width: 0;
-    }
-    #sidebar .itemList > div {
-      width: 100%;
-      border: 2px solid transparent;
-      text-wrap: nowrap;
-      padding: 6px;
-      background: var(--theme-box3);
-      transition: .2s;
-    }
-    #sidebar .itemList > div:active {
-      filter: brightness(1.5);
-      border-color: var(--theme-color2);
-      transform: scale(.95);
-    }
-  </style>
-  <style class="realStyle">
-@media (min-width: 800px) {
-    #mainSidebar {
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      min-width: 100vw;
-      min-height: 100vh;
-    }
-    .arLanguage #mainSidebar {
-      grid-template-columns: 5fr 1fr;
-    }
-    #main {
-      order: 2;
-    }
-    .arLanguage #main {
-      order: 1;
-    }
-    #sidebar {
-      order: 1;
-    }
-    .arLanguage #sidebar {
-      order: 2;
-    }
-    #h1Title {
-      font-size: 35px;
-    }
-    #openSidebar {
-      display: none;
-    }
-    #sidebar {
-      position: relative;
-      --leftSidebar: 0;
-    }
+  <title>Superxnero | Full Stack Developer Portfolio</title>
+  <meta name="description" content="I’m Superxnero, a full stack developer. Explore my work in web apps, games, and more." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/storage/5A67-DF85/GitHub/games/tic-tac-toe-2/assets/css/all.min.css">
+  <script src="/storage/5A67-DF85/مشاريع برمجة/front-end development/Learn Tailwind css/tailwindcss.min.js" type="text/javascript" charset="utf-8"></script>
+  <style>
+:root {
+    --primary: #4277B9;
+    --primary2: #65AAFF;
+    --secondary: #1A2F40;
+    --box: #465B78;
+    --background: #0D1E2E;
+    --text: #D9D9D9;
+    --secondary-text: #969696;
+    --secondary-box: #25303F;
+    --success: #42B963;
+    --accent: #9c66ff;
   }
+@font-face {
+    font-family: 'Cairo';
+    src: url('/storage/5A67-DF85/GitHub/data/quran/fonts/Cairo-Regular.ttf') format('truetype');
+  }
+    body {
+      font-family: Cairo;
+      text-decoration:;
+      color: var(--text);
+    }
   </style>
 </head>
-<body>
-  <div id="realPage">
-    <div id="mainSidebar">
-      <div id="main">
-        <header>
-          <div id="openSidebar" data-fetch="https://superxnero.github.io/assets/svgs/burger-menu_506800.svg"></div>
-          <h1 id="h1Title" data-textoptions="title"></h1>
-        </header>
-        <div id="container">
+<body class="bg-[--background]">
+  <header class="fixed top-0 left-0 z-40 border-b border-[--box] w-full transition-all bg-[--secondary]">
+    <nav>
+      <div class="container flex items-center mx-auto p-3 gap-x-4">
+        <div class="logo flex-grow flex items-center gap-4">
+          <img class="max-w-12 rounded-full border border-[--box]" src="./img/logo2.png" />
+          <h1 class="text-xl uppercase tracking-wider">superxnero</h1>
+        </div>
+        
+        <ul class="desktopNav hidden md:flex items-center gap-4">
+          <li data-id="abilities" class="p-2 transition rounded-full hover:bg-[--box] tracking-wide"><a href="#abilities">My Abilities</a></li>
+          <li data-id="gallery" class="p-2 transition rounded-full hover:bg-[--box] tracking-wide"><a href="#gallery">Gallery</a></li>
+          <li data-id="howIWork" class="p-2 transition rounded-full hover:bg-[--box] tracking-wide"><a href="#howIWork">How I Work</a></li>
+          <button class="contact-btn bg-[--primary] rounded-sm uppercase p-2 transition hover:scale-[.95] hover:brightness-[.9] tracking-wide" type="button">contact</button>
+        </ul>
+        
+        <button class="contact-btn bg-[--primary] rounded-sm uppercase p-2 md:hidden transition hover:scale-[.95] hover:brightness-[.9] tracking-wide" type="button">contact</button>
+
+        <div class="openNav transition rounded-full text-lg w-11 aspect-square grid place-items-center border border-[--primary] bg-[--box] md:hidden">
+          <i class="fas fa-bars"></i>
         </div>
       </div>
-      <div id="sidebar">
-        <div class="item">
-          <div class="itemShow" data-textoptions="language"></div>
-          <div id="availableLanguages" class="itemList">
-          </div>
+
+      <ul class="mobileNav transition-all flex flex-col md:hidden items-center pb-2 gap-1 h-0 opacity-0 pointer-events-none overflow-hidden">
+        <li data-id="abilities" class="w-full"><a href="#abilities" class="block p-2 transition rounded-full w-full text-center tracking-wide hover:bg-[--box]">My Abilities</a></li>
+        <li data-id="gallery" class="w-full"><a href="#gallery" class="block p-2 transition rounded-full text-center tracking-wide hover:bg-[--box]">Gallery</a></li>
+        <li data-id="howIWork" class="w-full"><a href="#howIWork" class="block p-2 transition rounded-full w-full text-center tracking-wide hover:bg-[--box]">How I Work</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="space-instead-header pointer-events-none opacity-0"></div>
+
+  <main class="container mx-auto">
+    <section class="hero bg-[--secondary-box] p-2 my-6 flex items-center flex-col-reverse md:flex-row md:rounded-md items-stretch justify-between">
+      <div class="title p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="font-bold text-lg tracking-wider">Full Stack Developer</h2>
+          <p class="text-[--secondary-text] tracking-wide">
+            <span>Do you want to build something amazing?</span>
+            <br />
+            <span>Take a look at my work!</span>
+          </p>
         </div>
-        <div class="item">
-          <div class="itemShow" data-textoptions="themeText"></div>
-          <div id="availableThemes" class="itemList">
-          </div>
-        </div>
-        <div class="item">
-          <div class="itemShow" data-textoptions="contact"></div>
-          <div id="phoneNumbersList" class="itemList">
-          </div>
+        <button class="contact-btn bg-[--primary] rounded-sm uppercase min-w-32 p-2 my-4 mr-auto transition hover:scale-[.95] hover:brightness-[.9] tracking-wide" type="button">contact</button>
+      </div>
+      <div class="grid place-items-center p-6 md:p-10">
+        <img class="max-w-full max-h-64 transition hover:scale-105" src="./img/hero5.png" />
+      </div>
+    </section>
+
+    <section id="abilities" class="bg-[--secondary-box] p-2 my-6 flex-col">
+      <div class="title text-center">
+        <h2 class="font-bold text-lg tracking-wider">My Abilities</h2>
+        <p class="text-[--secondary-text] tracking-wide">
+          What I know - What I can do
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-between">
+        <ul class="my-4 p-6">
+          <h3 class="font-bold text-lg tracking-wider">What I know</h3>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • HTML , CSS , JavaScript
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Tailwind CSS , SASS
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • React js , Next.js
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • PHP
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Python
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Flask / Python
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Flutter / Dart
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Creative Writing - Marketing
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • Figma
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--primary2]">
+            • languages (English, Arabic)
+          </li>
+        </ul>
+
+        <ul class="my-4 p-6">
+          <h3 class="font-bold text-lg tracking-wider">What I can do</h3>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Landing Page
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Web App - Dashboard (Front End or Full Stack)
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • 2D Web Game (Front End or Full Stack)
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Mobile App
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Mobile Game
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Web Dashboard
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Backend - APIs - Database
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Writing Content
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Figma Design
+          </li>
+          <li class="text-[--secondary-text] tracking-wide transition hover:text-[--success]">
+            • Beginner Translator (English, Arabic)
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="gallery" class="bg-[--secondary-box] p-4 my-6">
+      <div class="text-center mb-6">
+        <h2 class="font-bold text-xl tracking-wider">Gallery</h2>
+        <p class="text-[--secondary-text] tracking-wide">
+          The web apps and games I've built
+        </p>
+      </div>
+
+      <div id="projectGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
+
+      <div class="w-full text-center my-8">
+        <a href="#contact" class="contact-btn inline-block bg-[--primary] text-white px-6 py-3 rounded-full uppercase tracking-wide text-sm shadow-md transition hover:scale-95 hover:brightness-90">
+          Let's Build Something Together 🚀
+        </a>
+      </div>
+
+      <div class="text-right mt-6">
+        <button class="text-[--primary2] underline tracking-wide hover:scale-95 transition">
+          More Projects
+        </button>
+      </div>
+    </section>
+
+    <section class="bg-[--secondary-box] p-6 my-6 rounded-md text-center">
+      <h2 class="text-xl font-bold mb-4 tracking-wider">What Clients Say</h2>
+      <div class="space-y-2 mb-4">
+        <div class="group relative bg-[--secondary-box] brightness-[1.1] p-2 rounded-sm before:content-empty before:absolute before:top-0 before:left-0 before:w-2 before:h-2 before:rounded-none before:bg-[--primary] before:z-[-1] before:transition-all hover:before:w-full hover:before:h-full">
+          <p class="transition-all text-[--secondary-text] italic group-hover:text-[--text]">
+            “Everything you see here is 100% built by me for my own use. I treat personal projects like real clients.”
+            <br />
+            — Superxnero
+          </p>
         </div>
       </div>
+      <a href="#contact" class="contact-btn bg-[--primary] text-white px-6 py-2 rounded-full uppercase text-sm tracking-wide hover:scale-95 hover:brightness-90 inline-block transition">
+        Be One of Them 🚀
+      </a>
+    </section>
+
+    <section class="bg-[--secondary-box] p-6 my-6 rounded-md text-center">
+      <h2 class="text-xl font-bold mb-4 tracking-wider">Tools & Technologies I Use</h2>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">HTML</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">CSS</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Tailwind CSS</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">JavaScript</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">React.js</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Next.js</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Flask</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Python</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Flutter</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Figma</span>
+        <span class="bg-[--secondary] px-3 py-1 rounded-full transition-all hover:brightness-125 hover:scale-110 text-[--primary2] hover:text-[--accent]">Git & GitHub</span>
+      </div>
+    </section>
+
+    <section id="howIWork" class="bg-[--secondary-box] p-6 my-6 rounded-md">
+      <h2 class="text-xl font-bold text-center mb-4 tracking-wider">How I Work</h2>
+      <ol class="list-decimal list-inside text-sm text-[--secondary-text] max-w-xl mx-auto space-y-2">
+        <li class="transition hover:brightness-150">We start with a conversation to understand your idea and requirements</li>
+        <li class="transition hover:brightness-150">I propose an initial concept or design (Figma or directly)</li>
+        <li class="transition hover:brightness-150">I send you a pricing and timeline offer</li>
+        <li class="transition hover:brightness-150">I begin development with regular updates</li>
+        <li class="transition hover:brightness-150">I deliver the final project after testing, with post-delivery support</li>
+      </ol>
+    </section>
+
+    <section class="bg-[--secondary-box] p-6 my-6 rounded-md text-center">
+      <h2 class="text-xl font-bold mb-4 tracking-wider">My Progress So Far</h2>
+      <div class="flex flex-wrap justify-center gap-8 text-[--secondary-text] text-sm">
+        <div class="group">
+          <p class="text-2xl font-bold text-[--text] transition group-hover:text-[--success]">
+            10+
+          </p>
+          <p>
+            Mini Projects
+          </p>
+        </div>
+        <div class="group">
+          <p class="text-2xl font-bold text-[--text] transition group-hover:text-[--success]">
+            5+
+          </p>
+          <p>
+            Technologies Mastered
+          </p>
+        </div>
+        <div class="group">
+          <p class="text-2xl font-bold text-[--text] transition group-hover:text-[--success]">
+            100%
+          </p>
+          <p>
+            Passion & Dedication
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="imageViewer" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-all opacity-0 pointer-events-none">
+    <div class="relative">
+      <button id="closeViewer" class="absolute top-1 left-1 text-red-950 text-md w-6 h-6 rounded-sm bg-red-400/80 ring-1 ring-red-500 transition-all scale-110 hover:scale-90">
+        <i class="fas fa-xmark"></i>
+      </button>
+      <img id="fullImage" class="max-w-[90vw] max-h-[90vh] object-contain rounded shadow-lg border-2 border-[--box]" />
     </div>
   </div>
 
-  <script class="realScript" type="module" defer>
-    import {
-      OnChange
-    } from "https://superxnero.github.io/assets/libs/OnChange.js";
-    import {
-      LanguageManager
-    } from "https://superxnero.github.io/assets/libs/LanguageManager.js";
-    import {
-      ThemeManager
-    } from "https://superxnero.github.io/assets/libs/ThemeManager.js";
-    import {
-      FetchToElement
-    } from "https://superxnero.github.io/assets/libs/FetchToElement.js";
-    import * as an from "https://superxnero.github.io/assets/libs/another.js";
-    const q = (e)=> document.querySelector(e);
-    const qA = (e)=> document.querySelectorAll(e);
-    const root = document.documentElement;
-    const head = document.head;
-    const body = document.body;
-    const realPage = q("#realPage");
+  <footer class="bg-[--secondary] text-[--secondary-text] mt-8">
+    <div class="container mx-auto px-4 py-6 text-center">
+      <p class="text-sm mb-2">
+        &copy; 2025 superxnero — All rights reserved.
+      </p>
 
-    /* start real code */
-    async function realCode() {
-      // element variables
-      const openSidebar = q("#openSidebar");
-      const container = q("#container");
-      const sidebar = q("#sidebar");
-      const availableLanguages = q("#availableLanguages");
-      const availableThemes = q("#availableThemes");
-      const phoneNumbersList = q("#phoneNumbersList");
+      <div class="flex justify-center gap-4 text-[--text] text-lg mt-2">
+        <a href="https://github.com/superxnero" target="_blank">
+          <img src="/storage/5A67-DF85/GitHub/assets/svgs/github_439171.svg" alt="GitHub" class="w-6 h-6 hover:scale-110 transition" />
+        </a>
+        <a href="https://linkedin.com/in/superxnero" target="_blank">
+          <img src="/storage/5A67-DF85/GitHub/assets/svgs/linkedin-app-icon.svg" alt="LinkedIn" class="w-6 h-6 hover:scale-110 transition" />
+        </a>
+        <a href="mailto:alsdyabrahym439@gmail.com">
+          <img src="/storage/5A67-DF85/GitHub/assets/svgs/gmail_349378.svg" alt="Email" class="w-6 h-6 hover:scale-110 transition" />
+        </a>
+        <a href="https://wa.me/967783925213" target="_blank">
+          <img src="/storage/5A67-DF85/GitHub/assets/svgs/whatsapp-icon-logo_303147.svg" alt="WhatsApp" class="w-6 h-6 hover:scale-110 transition" />
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="/storage/5A67-DF85/مشاريع برمجة/front-end development/Learn Tailwind css/gsap.min.js"></script>
+  <script src="./main.js" type="module"></script>
 
-      const languageManager = new LanguageManager({
-        saveAll: true,
-        baseUrl: "https://superxnero.github.io/languages-content/superxnero-home/",
-        defaultLanguage: localStorage.getItem("language"),
-        changeEvents: {
-          "language": onLanguageChange
-        }
-      });
-      const themeManager = new ThemeManager({
-        saveAll: true,
-        baseUrl: "https://superxnero.github.io/themes-content/public/",
-        defaultTheme: localStorage.getItem("theme"),
-        changeEvents: {
-          "theme": onThemeChange
-        }
-      });
-      const fetchToElement = new FetchToElement(true);
-
-      let mainData = {
-        availableLanguages: new OnChange(onAvailableLanguagesChange),
-        availableThemes: new OnChange(onAvailableThemesChange),
-        contacts: new OnChange(onContactsChange)
-      };
-      setDatum("availableLanguages", ["ar", "en"]);
-      setDatum("availableThemes", ["light", "dark"]);
-
-      const contacts = [{
-        "name": "developer",
-        "phone": "967718177515"
-      }];
-      setDatum("contacts", contacts);
-
-      openSidebar.onclick = function() {
-        sidebar.classList.add("show");
-        sidebar.offclick(()=> {
-          sidebar.classList.remove("show");
-        });
-      }
-
-      sidebar.querySelectorAll("& > .item").forEach((item)=> {
-        const itemShow = item.querySelector("& > .itemShow");
-        const itemList = item.querySelector("& > .itemList");
-        itemShow.onclick = function() {
-          itemList.classList.add("show");
-          itemList.offclick(()=> {
-            itemList.classList.remove("show");
-          });
-        }
-      });
-
-      function onContactsChange(contacts) {
-        phoneNumbersList.innerHTML = "";
-        contacts.forEach((contact)=> {
-          phoneNumbersList.innerHTML += `
-          <div class="phoneNumber" data-phone="${contact.phone}" data-textoptions="${contact.name}"></div>`;
-        });
-        if (Object.keys(languageManager.languagesContent).length > 1) {
-          languageManager.updateElements();
-        }
-        Object.values(phoneNumbersList.querySelectorAll("& .phoneNumber")).forEach((item)=> {
-          item.onclick = function() {
-            const baseUrl = "https://wa.me/";
-            window.location.href = baseUrl + item.dataset.phone;
-          }
-        });
-      }
-
-      function onLanguageChange(language) {
-        localStorage.setItem("language", language);
-      }
-
-      function onThemeChange(theme) {
-        localStorage.setItem("theme", theme);
-      }
-
-      function onAvailableLanguagesChange(languages) {
-        availableLanguages.innerHTML = "";
-        languages.forEach((language)=> {
-          availableLanguages.innerHTML += `
-          <div class="languageItem" data-id="${language}" data-textoptions="${language}"></div>`;
-        });
-        if (Object.keys(languageManager.languagesContent).length > 1) {
-          languageManager.updateElements();
-        }
-        Object.values(availableLanguages.querySelectorAll("& .languageItem")).forEach((item)=> {
-          item.onclick = function() {
-            const id = item.dataset.id;
-            languageManager.setLanguage(id);
-          }
-        });
-      }
-
-      function onAvailableThemesChange(themes) {
-        availableThemes.innerHTML = "";
-        themes.forEach((theme)=> {
-          availableThemes.innerHTML += `
-          <div class="themeItem" data-id="${theme}" data-textoptions="${theme}"></div>`;
-        });
-        if (Object.keys(languageManager.languagesContent).length > 1) {
-          languageManager.updateElements();
-        }
-        Object.values(availableThemes.querySelectorAll("& .themeItem")).forEach((item)=> {
-          item.onclick = function() {
-            const id = item.dataset.id;
-            themeManager.setTheme(id);
-          }
-        });
-      }
-
-      function getDatum(datum) {
-        return mainData[datum].value;
-      }
-
-      function setDatum(datum, value) {
-        mainData[datum].change(value);
-      }
-    }
-    /* run real code */
-    realCode();
-
-    Element.prototype.allChildren = function(includeSelf = false) {
-      let children = Array.from(this.children);
-      children.forEach(child => {
-        children.push(...child.allChildren());
-      });
-      return includeSelf ? [this,
-        ...children]: children;
-    };
-
-
-    Element.prototype.offclick = function (fun,
-      other = {}) {
-      let element = this;
-
-      if (other == true) other = {
-        elementPlus: true
-      }
-      let conditon = other.conditon || 'true',
-      lockEvents = other.lockEvents || false,
-      elementPlus = other.elementPlus,
-      notLock = other.notLock,
-      clearEvent = other.clearEvent;
-      document.addEventListener('mouseup',
-        offClick);
-
-      let elements = [element];
-      if (elementPlus && elementPlus.v) {
-        if (an.isOneElement(elementPlus)) elements = [element,
-          elementPlus];
-        else elements = [element,
-          ...elementPlus];
-      }
-
-      if (lockEvents) {
-        if (!notLock) notLock = elements;
-        element.lockEvents('lock', notLock);
-      }
-
-      function offClick(events) {
-        let event = events || events.changedTouches[0];
-
-        if (elementPlus == true) {
-          removeEvent(event);
-          return;
-        }
-
-        let isNoClick = elements.length;
-        elements.forEach(element => {
-          if (event.target !== element) isNoClick--;
-          if (element.children) {
-            isNoClick += element.allChildren().length;
-            element.allChildren().forEach(child=> {
-              if (event.target !== child) isNoClick--;
-            });
-          }
-        });
-        var cond = typeof conditon == 'function' ? conditon(event): typeof conditon == 'boolean' ? conditon: '';
-        if (isNoClick === 0 && cond !== false || cond === true) removeEvent(event);
-      }
-      function removeEvent(event) {
-        document.removeEventListener('mouseup', offClick);
-        if (lockEvents) element.lockEvents('unlock', notLock);
-        if (typeof fun == 'function') fun(event);
-      }
-    }
+  <script>
+    eruda.destroy();
+  </script>
+  <script src="/eruda.min.js"></script>
+  <script>
+    eruda.init(); eruda.destroy();
   </script>
 </body>
 </html>
